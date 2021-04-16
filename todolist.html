@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="todolist.css">
+    <link rel="icon" href="Tab icon.png"/>
+    <link rel="stylesheet" href="buttons.css">
+    <script defer src="todo.js"></script>
+</head>
+<body>
+  <h1 class="title">To Do List</h1>
+
+  <div class="all-tasks">
+    <h2 class="task-list-title">My lists</h2>
+    <ul class="task-list" data-lists></ul>
+
+    <form action="" data-new-list-form>
+      <input 
+        type="text"
+        class="new list"
+        data-new-list-input
+        placeholder="new list name"
+        aria-label="new list name"
+      />
+      <button class="btn create" aria-label="create new list">+</button>
+    </form>
+  </div>
+  <div id="linktocalendar">
+    <h3><a href="calendar.html" target="_self">Calendar</a></h3>
+  </div>
+  <div id="linktohomepage">
+    <h3><a href="index.html" target="_self">Home Page</a></h3>
+  </div>
+  <div class="todo-list" data-list-display-container>
+    <div class="todo-header">
+      <h2 class="list-title" data-list-title></h2>
+      <p class="task-count" data-list-count></p>
+    </div>
+
+    <div class="todo-body">
+      <div class="tasks" data-tasks></div>
+
+      <div class="new-task-creator">
+          <form action="" data-new-task-form>
+              <input 
+                type="text"
+                data-new-task-input
+                class="new task"
+                placeholder="new task name"
+                aria-label="new task name"
+              />
+              <button class="btn create" aria-label="create new task">+</button>
+            </form>
+      </div>
+
+      <div class="delete-stuff">
+        <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
+        <button class="btn delete" data-delete-list-button>Delete list</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <template id="task-template">
+    <div class="task">
+      <input type="checkbox" />
+      <label>
+        <span class="custom-checkbox"></span>
+      </label>
+    </div>
+  </template>
+</body>
+</html>

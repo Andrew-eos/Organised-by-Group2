@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+     <meta name="viewport" content="width=device-width, initial -scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="registerpage.css">
+    <link rel="icon" href="Tab icon.png"/>
+</head>
+<body>
+      <section class="form__wrap">
+           <h3>PLEASE REGISTER THE FOLLOWING:</h3><br>
+
+         <form id="myForm" class="col s12">
+              <!--First Name-->
+              <div class="sign">
+                <div class="input-field col s12">
+                    <input name="fname" type="text" placeholder="First Name"  >
+              </div>
+              <br>
+              </div>
+              <!--Last Name-->
+              <div class="sign">
+                <div class="input-field col s12">
+                    <input name="lname" type="text" placeholder="Last Name" >
+                </div>
+              </div>
+              <br>
+              <!--Username-->
+              <div class="sign">
+               <div class="input-field col s12">
+                  <input name="username" id="username" type="text" minlength="8" placeholder="Username"required>
+                </div>
+              </div>
+              <br>
+              <!--Password-->
+              <div class="sign">
+                <div class="input-field col s12">
+                  <input name="password" id="password" type="password" placeholder="Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" >
+                </div>
+              </div>
+              <br>
+              <!--Email-->
+              <div class="sign">
+                <div class="input-field col s12">
+                  <input name="email" id="email" type="email" placeholder="Email" required>
+                </div>
+              </div>
+                <br>
+              <div class="sign">
+                  <div class="input-field col s12">
+                  <p> Security Question:</p><p>What Is Your Mothers Maiden Name?</p>
+                     <input name="security" id="security" type="text" placeholder="Answer" required>
+                   </div>
+                  </div>
+                  <br>
+            <div class="sign">
+                <div class="col">
+                 <input id="signup" type="submit" class="btn waves-effect waves-light blue" onclick="register()" value="Sign Up" required/>
+                </div>
+            </div>
+     
+          </form>
+     
+      </section>
+
+  
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+        async function register(){
+           let username = document.getElementById('username').value
+           let password = document.getElementById('password').value
+           let email = document.getElementById('email').value
+           let security = document.getElementById('security').value
+
+           
+           var i;
+
+           if(localStorage.getItem("i")==null){
+             i=1;
+           }
+           else{
+             i=localStorage.getItem("i");
+           }
+
+            if(valid(username,email)==true){
+
+              localStorage.setItem(`username${i}`,username);
+              localStorage.setItem(`password${i}`,password);
+              localStorage.setItem(`email${i}`,email);
+              localStorage.setItem(`security${i}`,security);
+             
+              i=i+"1";
+              localStorage.setItem("i",i);  
+              
+              alert(`User ${username} Registered`);
+              let url="https://organised.shaquimpierre.repl.co/";
+               window.location.replace(url);
+            }
+            
+        }
+
+        function valid(username,email){
+
+          let i=1;
+
+          for(var k=0;k<localStorage.length;k=k+1){
+
+            let stored_user=localStorage.getItem(`username${i}`);
+            let stored_email=localStorage.getItem(`email${i}`);
+
+            if(username==stored_user){
+              alert("Username Already Taken!");
+              return false;
+            }
+
+            else if(username==" " || username.length<8 || username==null){
+              return false;
+            }
+
+            else if(password<8){
+              return false;
+            }
+
+            else if(email==stored_email){
+              alert("Email Already In Use!");
+              return false;
+            }
+                        
+            else{
+              i=i+"1";
+            }
+
+
+
+          }
+          
+
+          return true;
+        }
+
+  </script>
+
+  <br>
+  <br>
+     
+</body>
+</html>

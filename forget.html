@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forget Password</title>
+     <meta name="viewport" content="width=device-width, initial -scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="icon" href="Tab icon.png"/>
+    <link rel="stylesheet" href="forgetpw.css">
+</head>
+<body>
+  <h3>Password Recovery</h3>
+
+  <section>
+  <form>
+     <div class="log">
+         <div class="input-field col s12">
+                  <input name="user" id="user" type="text" placeholder="Enter Username or Email" required>
+          </div>
+        </div>
+
+         <div class="log">
+              <div class="input-field col s12">
+              <p class="ques"> Security Question:</p><p> What Is Your Mothers Maiden Name?</p>
+                 <input name="security" id="security" type="text" placeholder="Answer" required>
+               </div>
+              </div>
+        <div>
+          <br>
+          <div class="log">
+           <button class="waves-effect waves-light btn" id="frgpass" onclick="forgetpass()">View Password</button>
+           </div>
+        </div>
+          <div>
+
+          </form>
+       
+          </section> 
+
+           <br>
+             <div class="return">
+            <a href="index.html" class="collection-item"><button>Return To HomePage</button></a>
+            </div>
+      
+
+      <script>
+        function forgetpass(){
+
+          let user = document.getElementById('user').value;
+          let security = document.getElementById('security').value
+          
+          var n=false;
+          let i=1;
+
+            for(var k=0;k<localStorage.length;k=k+1){
+                 let stored_user=localStorage.getItem(`username${i}`);
+                 let stored_password=localStorage.getItem(`password${i}`);
+                 let stored_email=localStorage.getItem(`email${i}`);
+                 let question=localStorage.getItem(`security${i}`);
+
+             
+             
+                        if (user == stored_user) {
+                            n=true;
+                          if(question==security){
+                            alert(`Password: ${stored_password}`);
+                            return;
+                          }
+                        
+                        }
+
+                        else if (user == stored_email) {
+                          n=true;
+                          if(question==security){
+                            alert(`Password: ${stored_password}`);
+                            return;
+                          }
+                          
+                        }
+
+
+                        else {
+                           i=i+"1";                        
+                        }
+            }
+          
+          if(n==true)
+          alert("Incorrect Answer to Security Question");
+
+          else
+          alert("User Does not Exist");
+
+
+        }
+
+      </script>
+</body>
+</html>

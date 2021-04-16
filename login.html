@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LogIn</title>
+     <meta name="viewport" content="width=device-width, initial -scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="loginpage.css">
+    <link rel="icon" href="Tab icon.png"/>
+</head>
+
+    
+    <section class="form__wrap2">
+      <h2>Log In</h2>
+
+      <!-- <form id="logForm" class="col s12"> -->
+       <div class="log">
+         <div class="input-field col s12">
+                  <input name="username" id="user" type="text" placeholder="Enter Username or Email" required>
+          </div>
+        </div>
+        <br>
+        <div class="log">
+            <div class="input-field col s12">
+                <input name="password" id="pass" type="password"  placeholder="Enter Password" required>
+            </div>
+        </div>
+        <div class="log">
+          <div class="col">
+            <br>
+            <div>              
+              <a href="forget.html" class="collection-item">Forget Password?</a>
+            </div>
+        <div class="log">
+            <div class="col">
+              <button class="waves-effect waves-light btn" id="logBtn" onclick="getlog()">Login</a></button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+      function getlog(){
+        
+        if(check()==true){
+           alert("You are logged in!");
+
+           let url="https://organised.shaquimpierre.repl.co/todolist.html";
+            window.location.replace(url);
+        }
+
+        else{
+          alert("Username and Password do not match!");
+        }
+
+      }
+
+
+
+      function check(){
+
+                let user = document.getElementById('user').value
+	              let password = document.getElementById('pass').value
+                
+                let storeduser= localStorage.getItem("username");
+                let i=1;
+
+                for(var k=0;k<localStorage.length;k=k+1){
+                      let stored_user=localStorage.getItem(`username${i}`);
+                      let stored_password=localStorage.getItem(`password${i}`);
+                      let stored_email=localStorage.getItem(`email${i}`);
+
+                        if (user == stored_user && password == stored_password) {
+                         return true;
+                        }
+
+                        else if (user == stored_email && password == stored_password) {
+                         return true;
+                        }
+
+                        else {
+                           i=i+"1";                        
+                        }
+
+                     
+                }
+            return false;
+  }
+                  
+               
+              
+                
+              
+              
+            
+    </script>
+
+
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    
+   
+<body>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/*Home Page*/
+#login{
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 20px;
+}
+/*Home Page*/
+#register{
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 20px;
+}
+/*login page*/
+#todolist{
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 20px;
+}
+
+
+
+#linktocalendar{
+    font-size: 10px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 75%;
+    left: 27%;
+    transform: translate(-50%,-50%);
+    padding: 5px 10px;
+}
+
+#linktohomepage{
+    font-size: 10px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 85%;
+    left: 27%;
+    transform: translate(-50%,-50%);
+    padding: 5px 10px;
+
+
+}
+
+@media only screen and (min-width: 768px){
+/*Back to TODO list*/
+#calendar{
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 20px;
+}
+}
+
+@media only screen and (max-width: 700px){
+
+  #calendar{
+    visibility: hidden;
+    display: none;
+    border: none;
+     background:none;
+    border: none;
+  }
+}
+
